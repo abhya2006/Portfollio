@@ -128,3 +128,91 @@ body{font-size:18px}
 .about-foot b{display:block;margin:5px 0 0;font:600 19px/1.4 var(--display);letter-spacing:.015em;color:var(--text)}
 @media(max-width:900px){.hero-top>span:first-child,.hero-top>span:last-child{font-size:18px}.about-foot{font-size:18px}.about-foot b{font-size:18px}}
 @media(max-width:620px){.hero-top{display:flex;align-items:flex-start;flex-direction:column;gap:8px}.hero-top>span:first-child{flex:none;width:100%;max-width:100%;font-size:18px;line-height:1.35}.hero-top span:last-child{display:block;width:100%;font-size:18px;line-height:1.35;text-align:left}.about-foot{display:grid;gap:18px;font-size:18px;line-height:1.5}.about-foot>span{display:block}.about-foot b{font-size:18px;line-height:1.45}}
+
+
+/* Responsive finishing pass: preserve the current composition while preventing narrow-screen crowding. */
+@media (max-width: 760px) {
+  .site-header { height: 68px; padding-inline: 20px; }
+  .main-nav { gap: 0; }
+  .menu-toggle { width: 44px; height: 44px; display: flex; flex-direction: column; justify-content: center; gap: 6px; padding: 10px; border: 1px solid var(--border); background: rgba(17,17,20,.92); color: var(--text); cursor: pointer; }
+  .menu-toggle span { width: 100%; height: 1px; background: currentColor; transition: transform .25s, width .25s; }
+  .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(3.5px) rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+  .main-nav { position: fixed; inset: 68px 0 auto; max-height: calc(100svh - 68px); overflow-y: auto; display: flex; flex-direction: column; align-items: stretch; gap: 0; padding: 12px 22px 24px; background: rgba(10,10,10,.98); border-bottom: 1px solid var(--border); opacity: 0; visibility: hidden; transform: translateY(-8px); transition: opacity .22s, transform .22s, visibility .22s; }
+  .main-nav.is-open { opacity: 1; visibility: visible; transform: translateY(0); }
+  .main-nav a { width: 100%; padding: 14px 2px; border-bottom: 1px solid rgba(255,255,255,.08); font-size: 18px; }
+  .main-nav .nav-contact { margin-top: 13px; padding: 14px; text-align: center; border: 1px solid var(--border); }
+  .main-nav .motion-toggle { align-self: flex-start; margin: 14px 0 2px; }
+  .section-pad { padding-left: clamp(20px, 6vw, 42px); padding-right: clamp(20px, 6vw, 42px); }
+  .about, .skills, .projects, .engineering, .journey, .credentials, .learning, .contact, .education { padding-top: 112px; padding-bottom: 88px; }
+  .hero { padding-top: 88px; }
+  .hero-top { width: 100%; }
+  .hero-top > span:first-child, .hero-top > span:last-child { overflow-wrap: anywhere; }
+  .hero-content { width: 100%; }
+  .hero-title { font-size: clamp(60px, 15.8vw, 94px); letter-spacing: -.095em; }
+  .hero-title > span { max-width: 100%; }
+  .hero-bottom-row { align-items: flex-start; flex-direction: column; gap: 18px; }
+  .hero-actions { flex-wrap: wrap; gap: 10px 18px; }
+  .hero-specialty { flex-wrap: wrap; line-height: 1.8; }
+  .hero-portrait { max-width: 100%; }
+  .hero-portrait figcaption { flex-wrap: wrap; font-size: 9px; }
+  .hero-coordinates { display: none; }
+  .section-heading { align-items: flex-start; flex-direction: column; gap: 17px; }
+  .heading-aside { max-width: 100%; }
+  .skills-layout { grid-template-columns: 1fr; }
+  .skill-categories { padding: 8px 0; border-right: 0; border-bottom: 1px solid var(--border); }
+  .skill-detail { padding: 24px 0; }
+  .project-row, .project-item { min-width: 0; }
+  .project-visual, .project-copy { min-width: 0; }
+  .project-copy { overflow-wrap: anywhere; }
+  .campus-stage { max-width: 100%; overflow: hidden; }
+  .contact-grid { min-width: 0; }
+  .contact-side { min-width: 0; }
+}
+@media (max-width: 420px) {
+  .site-header { padding-inline: 16px; }
+  .section-pad { padding-left: 18px; padding-right: 18px; }
+  .hero { min-height: 100svh; padding-top: 82px; }
+  .hero-content { gap: 20px; }
+  .hero-title { font-size: clamp(56px, 15.5vw, 66px); }
+  .hero-statement { font-size: 18px; }
+  .hero-actions .button { min-height: 44px; height: auto; padding-block: 10px; }
+  .hero-portrait { height: clamp(205px, 62vw, 270px); }
+  .hero-portrait figcaption { left: 12px; right: 12px; bottom: 13px; font-size: 8px; }
+  .about, .skills, .projects, .engineering, .journey, .credentials, .learning, .contact, .education { padding-top: 100px; padding-bottom: 76px; }
+  .section-index { top: 38px; }
+  .education-experience { min-width: 0; }
+  .education-side { min-width: 0; }
+  .education-facts > span { gap: 8px; }
+  .education-facts b { max-width: 62%; overflow-wrap: anywhere; }
+  .project-visual { min-height: 210px; }
+  .contact-actions { display: flex; flex-wrap: wrap; }
+  .footer-bottom { column-gap: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-motion="on"]) .main-nav { transition: none; }
+}
+
+@media (max-width: 420px) {
+  .hero-top { align-items: flex-start; }
+  .hero-top > span:first-child, .hero-top > span:last-child { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+  .hero-top > span:first-child { font-size: 16px; }
+  .hero-top > span:last-child { font-size: 15px; }
+  .hero-title { font-size: clamp(49px, 13.8vw, 58px); letter-spacing: -.09em; }
+  .hero-title .title-outline { white-space: nowrap; }
+  .hero-content { margin-top: 30px; }
+}
+
+@media (max-width: 420px) {
+  .hero-top > span:first-child, .hero-top > span:last-child { font-family: var(--mono); font-size: 10px; line-height: 1.55; letter-spacing: .06em; }
+  .hero-top > span:first-child { max-width: 29ch; }
+  .hero-top > span:last-child { max-width: 34ch; }
+  .hero-title .title-outline { display: block; white-space: nowrap; }
+  .hero-title .title-period { display: inline; }
+  .hero-title { font-size: clamp(45px, 12.8vw, 53px); letter-spacing: -.085em; }
+}
+
+@media (min-width: 761px) {
+  .main-nav { position: static; max-height: none; overflow: visible; opacity: 1; visibility: visible; transform: none; padding: 0; border: 0; background: transparent; }
+  .menu-toggle { display: none; }
+}
