@@ -365,3 +365,13 @@ body{font-size:18px}
   font-weight: 700 !important;
 }
 .hero-title .title-outline .title-period { color: var(--rose) !important; }
+
+/* Hero name hierarchy: bold ABHAY/KUMAR and bold maroon PATHAK while typing. */
+.hero-title > span { font-weight: 700 !important; }
+.hero-title .title-outline,
+.hero-title .title-outline.typing-active {
+  color: #800000 !important;
+  -webkit-text-stroke: 0 !important;
+  font-weight: 700 !important;
+}
+.hero-title .title-outline .title-period { color: var(--rose) !important; }
