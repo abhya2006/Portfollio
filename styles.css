@@ -342,3 +342,17 @@ body{font-size:18px}
 @media (max-width: 390px) {
   .hero-title { font-size: clamp(32px, 9vw, 38px) !important; }
 }
+
+/* Give the typed PATHAK line a deep maroon fill while preserving its accent period. */
+.hero-title .title-outline { color: #800000; -webkit-text-stroke: 0; }
+.hero-title .title-outline .title-period { color: var(--rose); -webkit-text-stroke: 0; }
+
+/* Fit the maroon PATHAK word inside the narrow phone hero. */
+@media (max-width: 620px) {
+  .hero-title { width: 100%; min-width: 0; overflow: visible; }
+  .hero-title > span { max-width: 100%; }
+  .hero-title .title-outline { width: auto; max-width: 100%; font-size: .84em; letter-spacing: -.085em; }
+}
+@media (max-width: 390px) {
+  .hero-title .title-outline { font-size: .78em; }
+}
